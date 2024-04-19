@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MuscleCarWebService.Models;
 
 namespace MuscleCarWebService.Controllers
 {
@@ -6,9 +7,11 @@ namespace MuscleCarWebService.Controllers
     [Route("[controller]")]
     public class CarController : ControllerBase
     {
-        private static readonly string[] Cars = new[]
+        private static readonly Car[] Cars = new Car[]
         {
-            "Mustang", "Camaro", "Charger", "Challenger", "Impala", "Roadrunner", "Opala", "Maverick", "Dart", "Cougar"
+            new Car { Model = "Mustang", Year = "1964", Maker = "Ford", Summary = "Classic muscle car" },
+            new Car { Model = "Opala", Year = "1969", Maker = "Chevrolet", Summary = "Classic muscle car" },
+            new Car { Model = "Charger", Year = "1966", Maker = "Dodge", Summary = "Classic muscle car" },
         };
 
         private readonly ILogger<CarController> _logger;
@@ -19,7 +22,7 @@ namespace MuscleCarWebService.Controllers
         }
 
         [HttpGet(Name = "GetCar")]
-        public IEnumerable<string> Get()
+        public IEnumerable<Car> Get()
         {
             return Cars.ToArray();
             
