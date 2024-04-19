@@ -1,6 +1,6 @@
 @MuscleCarWebService_HostAddress = http://localhost:5217
 
-GET {{MuscleCarWebService_HostAddress}}/weatherforecast/
+GET {{MuscleCarWebService_HostAddress}}/car/
 Accept: application/json
 
 ###
