@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using MuscleCarWebService.Models;
+using CarWebService.Models;
 
-namespace MuscleCarWebService.Controllers
+namespace CarWebService.Controllers
 {
     [ApiController]
     [Route("[controller]")]

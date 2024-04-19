@@ -1,4 +1,4 @@
-namespace MuscleCarWebService.Models
+namespace CarWebService.Models
 {
     public class Car
     {
