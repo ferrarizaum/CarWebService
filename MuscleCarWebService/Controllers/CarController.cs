@@ -6,26 +6,27 @@ namespace CarWebService.Controllers
     [ApiController]
     [Route("[controller]")]
     public class CarController : ControllerBase
-    {
-        private static readonly Car[] Cars = new Car[]
-        {
-            new Car { Model = "Mustang", Year = "1964", Maker = "Ford", Summary = "Classic muscle car" },
-            new Car { Model = "Opala", Year = "1969", Maker = "Chevrolet", Summary = "Classic muscle car" },
-            new Car { Model = "Charger", Year = "1966", Maker = "Dodge", Summary = "Classic muscle car" },
-        };
-
+    {      
         private readonly ILogger<CarController> _logger;
+        private readonly CarList _carList;
 
-        public CarController(ILogger<CarController> logger)
+        public CarController(ILogger<CarController> logger, CarList carList)
         {
+            _carList = carList;
             _logger = logger;
         }
 
         [HttpGet(Name = "GetCar")]
-        public IEnumerable<Car> Get()
+        public List<Car> Get()
         {
-            return Cars.ToArray();
-            
+            return _carList.Cars.ToList();
+        }
+
+        [HttpPost(Name = "PostCar")]
+        public void Post(string model, string year, string maker, string summary)
+        {
+            Car newCar = new Car { Model =  model, Year = year, Maker = maker, Summary = summary };
+            _carList.Cars.Add(newCar);
         }
     }
 }
