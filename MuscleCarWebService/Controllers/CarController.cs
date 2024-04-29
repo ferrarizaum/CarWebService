@@ -28,5 +28,12 @@ namespace CarWebService.Controllers
             Car newCar = new Car { Model =  model, Year = year, Maker = maker, Summary = summary };
             _carList.Cars.Add(newCar);
         }
+
+        [HttpDelete(Name = "DeleteCar")]
+        public void Delete(string model)
+        {
+            Car selectedCar = _carList.Cars.Find(x => x.Model == model);
+            _carList.Cars.Remove(selectedCar);
+        }
     }
 }
