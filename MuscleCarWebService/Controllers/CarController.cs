@@ -7,7 +7,7 @@ namespace CarWebService.Controllers
     [Route("[controller]")]
     public class CarController : ControllerBase
     {      
-        private readonly ILogger<CarController> _logger;
+        private readonly ILogger<CarController> _logger; //what is this ?
         private readonly CarList _carList;
 
         public CarController(ILogger<CarController> logger, CarList carList)
@@ -34,6 +34,13 @@ namespace CarWebService.Controllers
         {
             Car selectedCar = _carList.Cars.Find(x => x.Model == model);
             _carList.Cars.Remove(selectedCar);
+        }
+
+        [HttpPut(Name = "UpdateCar")]
+        public void Update(string model, string newName)
+        {
+            Car selectedCar = _carList.Cars.Find(x => x.Model == model);
+            selectedCar.Model = newName;
         }
     }
 }
