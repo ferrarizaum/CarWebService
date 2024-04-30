@@ -9,5 +9,6 @@ namespace CarWebService.Models
         public string Maker { get; set; }
 
         public string? Summary { get; set; }
+        public string? Category { get; set; }
     }
 }
