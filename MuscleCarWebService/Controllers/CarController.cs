@@ -23,9 +23,9 @@ namespace CarWebService.Controllers
         }
 
         [HttpPost(Name = "PostCar")]
-        public void Post(string model, string year, string maker, string summary)
+        public void Post(string model, string year, string maker, string summary, string category)
         {
-            Car newCar = new Car { Model =  model, Year = year, Maker = maker, Summary = summary };
+            Car newCar = new Car { Model =  model, Year = year, Maker = maker, Summary = summary, Category = category };
             _carList.Cars.Add(newCar);
         }
 
