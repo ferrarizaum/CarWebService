@@ -7,7 +7,7 @@ namespace CarWebService.Controllers
     [Route("[controller]")]
     public class CarController : ControllerBase
     {      
-        private readonly ILogger<CarController> _logger; //what is this ?
+        private readonly ILogger<CarController> _logger; 
         private readonly CarList _carList;
 
         public CarController(ILogger<CarController> logger, CarList carList)
