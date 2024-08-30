@@ -39,7 +39,7 @@ namespace CarWebService.Controllers
         [HttpDelete(Name = "DeleteCar")]
         public void Delete(string model)
         {
-            _carService.DeteleCar(model);
+            _carService.DeleteCar(model);
         }
     }
 }

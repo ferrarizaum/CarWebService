@@ -33,7 +33,7 @@ namespace CarWebService.Services
             throw new KeyNotFoundException($"Car with model '{model}' not found.");
         }
 
-        public Car DeteleCar(string model)
+        public Car DeleteCar(string model)
         {
             Car selectedCar = _carList.Cars.Find(x => x.Model == model);
             if (selectedCar != null)
